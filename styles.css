@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color:lightblue;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1{
+    font-size: 40px;
+    text-align: center;
+}
+
+button{
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: blanchedalmond;
+}
+
+.label{
+    font-size: 20px;
+}
+
+.books{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 310px);
+    gap: 10px;
+}
+.card{
+    background-color: white;
+    overflow-wrap:break-word;
+    border-radius: 20px;
+    border-left: 15px solid orange;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+#read{
+    display: flex;
+    justify-content: space-between;
+}
+.card button{
+    padding: 0;
+    align-self: center;
+    width:100px;
+}
