@@ -7,20 +7,25 @@ let submit = document.querySelector("#submit");
 newBookButton.addEventListener("click", addBookToLibrary);
 submit.addEventListener("click", submitBook);
 
-function Book(title, author, pages, read){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+class Book{
+    constructor(title, author, pages, read){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+    info(){
+        let read = "not read yet"
+        if(this.read){
+            read = "read"
+        }
+        return this.title + " by " + this.author + ", " + this.pages + " pages, " + read;
+    }
 }
 
-Book.prototype.info = function(){
-    let read = "not read yet"
-    if(this.read){
-        read = "read"
-    }
-    return this.title + " by " + this.author + ", " + this.pages + " pages, " + read;
-}
+// Book.prototype.info = function(){
+
+// }
 
 function submitBook (){
     event.preventDefault();
