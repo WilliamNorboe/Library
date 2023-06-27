@@ -1,8 +1,11 @@
 let myLibrary = [];
 let books = document.querySelector(".books");
 let newBookButton = document.querySelector("#newBook");
+let popup = document.querySelector(".popup");
+let submit = document.querySelector("#submit");
 
 newBookButton.addEventListener("click", addBookToLibrary);
+submit.addEventListener("click", submitBook);
 
 function Book(title, author, pages, read){
     this.title = title;
@@ -19,21 +22,22 @@ Book.prototype.info = function(){
     return this.title + " by " + this.author + ", " + this.pages + " pages, " + read;
 }
 
-function addBookToLibrary(){
-    let title = window.prompt("Enter Title of the Book: ");
-    let author = window.prompt("Enter Author of the Book: ");
-    let pages = window.prompt("How many pages is the Book?: ");
-    let read = window.prompt("Have you read the book y/n: ");
-    if(read == 'y'){
-        read = true;
-    }
-    else{
-        read = false;
-    }
-    const newBook = new Book(title, author, pages, read); 
+function submitBook (){
+    event.preventDefault();
 
+    newBook = new Book(newName.value, newAuthor.value, newPages.value, newRead.checked);
     myLibrary.push(newBook);
+
+    popup.style.display = "none";
+    newName.value = "";
+    newAuthor.value = "";
+    newPages.value = "";
+    newRead.checked = false;
     displayBooks();
+}
+function addBookToLibrary(){
+    popup.style.display = "block";
+    // newBook = new Book(newName, author, pages,read);
 }
 
 function removeAllChildNodes(parent){
